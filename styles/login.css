@@ -1,20 +1,20 @@
 /*background*/
 body {
     width: 100%;
-    margin: 5px, 5px, 5px, 5px;
-    background-repeat: no-repeat;
+    margin:0;
+    background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: cover;
 
 }
 
-/*box with usrname and password options*/
+/*box with username and password options*/
 .box {
     position: absolute;
     width: 33%;
     height: fit-content;
     left: 32%;
-    top: 10%;
+    top: 17%;
     background: #FAF8F1;
     border-radius: 30px;
     font-size: 1vw;
@@ -71,7 +71,7 @@ label {
 }
 
 /*button login */
-button {
+form button {
     background: linear-gradient(96.45deg, #D8B330 15.03%, #3AAFF0 100%);
     font-family: 'Inder';
     font-style: normal;

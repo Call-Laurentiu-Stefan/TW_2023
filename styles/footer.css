@@ -1,0 +1,24 @@
+.footer{
+    background-color: #E5BA73;
+    display:flex;
+    justify-content:center;
+    position:absolute;
+    bottom:0;
+    height:5rem;
+    width: 100%;
+    margin-top:10%;
+}
+
+.footer>a{
+    display: inline-block;
+    color: #734203;
+    text-decoration: none;
+    font-family:'Courier New', Courier, monospace;
+    margin:auto 5% auto 5%;
+    font-size:25px;
+
+}
+
+.footer>a:hover{
+    text-decoration:underline;
+}
