@@ -1,11 +1,24 @@
-/*background*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 body {
-    width: 100%;
-    margin:0;
+    background-image: url('../resources/BackGround.png');
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: cover;
+   }
 
+.content {
+    min-height: calc(100vh - 200px);
+}
+
+.emptyspace {
+    height: 200px;
 }
 
 /*box with username and password options*/
@@ -27,9 +40,7 @@ body {
     margin-top: 10%;
 }
 
-input[id=email],
-select,
-textarea {
+input[id=email]{
     width: 60%;
     font-family: 'Inder';
     font-style: normal;
@@ -42,9 +53,7 @@ textarea {
     margin-right: 15%;
 }
 
-input[id=password],
-select,
-textarea {
+input[id=password]{
     width: 60%;
     font-family: 'Inder';
     font-style: normal;
@@ -155,7 +164,7 @@ h3 {
 }
 
 @media only screen and (min-width: 450px) and (max-width:580px) {
-    button {
+    form button {
         margin-left: 35%;
     }
 
@@ -171,7 +180,6 @@ h3 {
     h1 {
         margin-left: 40%;
     }
-
 }
 
 @media only screen and (min-width: 580px) and (max-width:810px) {
