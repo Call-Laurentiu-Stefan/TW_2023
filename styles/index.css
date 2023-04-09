@@ -1,0 +1,255 @@
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+
+body {
+    background-image: url('./resources/BackGround.png');
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   }
+
+
+
+
+
+
+
+
+
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 2 / 2 / 5 / 5; }
+    .div2 { grid-area: 2 / 5 / 5 / 11; }
+    .div3 { grid-area: 2 / 11 / 5 / 14; }
+    
+    
+    
+    .div1 {
+        min-height: 500px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        /* padding: 20px; */
+        background-color: #E5BA73;
+    }
+    
+    .div2 {
+        min-height: 500px;
+        background-color: #D9D9D9;
+    }
+    
+    .div3 {
+        min-height: 500px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #E5BA73;
+    }
+    
+    
+    
+    .div1,
+    .div2,
+    .div3 {
+      opacity: 0; /* Set the initial opacity to 0 */
+      animation: fadeIn 0.5s ease-in-out forwards; /* Use the fadeIn animation */
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px); /* Move the div 10px up from its original position */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0); /* Return the div to its original position */
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    label[id^="tari"]{
+    /*   display: block; */
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[id^="tari"]{
+    /*   display: block; */
+      width: 25%;
+      padding: 10px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #555;
+    }
+    
+    input[id^="tari"]::placeholder {
+      color: #999;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    select[id^="ani"]{
+    /*   display: block; */
+      width: 45%;
+      margin: 3px;
+      padding: 10px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #555;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .graf{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-left: -4px;
+    }
+    
+    
+    
+    
+    
+    
+    label[id^="graf"]{
+      margin-left: -3px;
+      margin-right: 5px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* .dropdown {
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+    }
+    a {
+      color: #fff;
+    }
+    .dropdown dd,
+    .dropdown dt {
+      margin: 0px;
+      padding: 0px;
+    }
+     
+    .dropdown ul {
+      margin: -1px 0 0 0;
+    }
+    .dropdown dd {
+      position: relative;
+    }
+    .dropdown a,
+    .dropdown a:visited {
+      color: #fff;
+      text-decoration: none;
+      outline: none;
+      font-size: 12px;
+    }
+    .dropdown dt a {
+      background-color: #2e5e68;
+      display: block;
+      padding: 8px 20px 5px 10px;
+      min-height: 25px;
+      line-height: 24px;
+      overflow: hidden;
+      border: 0;
+      width: 272px;
+    }
+    .dropdown dt a span,
+    .multiselct span {
+      cursor: pointer;
+      display: inline-block;
+      padding: 0 3px 2px 0;
+    }
+    .dropdown dd ul {
+      background-color: #2e5e68;
+      border: 0;
+      color: #fff;
+      display: none;
+      left: 0px;
+      padding: 2px 15px 2px 5px;
+      position: absolute;
+      top: 2px;
+      width: 280px;
+      list-style: none;
+      height: 100px;
+      overflow: auto;
+    }
+    .dropdown span.value {
+      display: none;
+    }
+    .dropdown dd ul li a {
+      padding: 5px;
+      display: block;
+    }
+    .dropdown dd ul li a:hover {
+      background-color: #fff;
+    } */
