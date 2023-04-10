@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+body {
+  background-color: #faf8f1;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.data {
+  width: 100%;
+  position: relative;
+  margin: 200px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 75px;
+}
+
+.btnNew {
+  position: absolute;
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e5ba73;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  bottom: 0;
+  left: 45%;
+}
+
+.btnEdit {
+  background-color: lightseagreen;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.btnEdit:hover {
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btnDelete {
+  background-color: lightcoral;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.btnDelete:hover {
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 10px;
+  background-color: #e5ba73;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
