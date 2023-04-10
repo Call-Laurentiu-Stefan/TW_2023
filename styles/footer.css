@@ -2,22 +2,12 @@
     background-color: #E5BA73;
     display:flex;
     justify-content:center;
-    bottom:0;
-    left:0;
     height:100px;
     width: 100%;
 }
 
-.footer>a{
-    display: inline-block;
-    color: #734203;
-    text-decoration: none;
-    font-family:'Courier New', Courier, monospace;
-    margin:auto 5% auto 5%;
-    font-size:25px;
-
-}
-
-.footer>a:hover{
-    text-decoration:underline;
+.footer span{
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
 }

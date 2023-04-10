@@ -4,6 +4,7 @@
     <meta charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap">
     <link rel="stylesheet" href="styles/header.css" >
     <link rel="stylesheet" href="styles/index.css" >
     <link rel="stylesheet" href="styles/footer.css" >
@@ -22,18 +23,233 @@
         </ul>
       </nav>
     </header>  
+
     
     <div class="content">
       <div class="parent">
-        <div class="div1"></div>
+        <div class="div1">
+
+          <h2>
+            Export menu
+          </h2>
+
+          <div class="mycontent">
+            <div class="tari">
+              <label class="category">Tari:</label>
+              <input type="text" class="input-box" placeholder="Choose from the options...">
+              <ul class="dropdown">
+                <li><input type="checkbox" name="option1" value="Option 1">Option 1</li>
+                <li><input type="checkbox" name="option2" value="Option 2">Option 2</li>
+                <li><input type="checkbox" name="option3" value="Option 3">Option 3</li>
+                <li><input type="checkbox" name="option4" value="Option 4">Option 4</li>
+                <li><input type="checkbox" name="option5" value="Option 5">Option 5</li>
+              </ul>
+            </div>
+  
+            <div class="ani">
+              <label class="category">Ani:</label>
+        
+              <div class="choices">
+                <select id="ani1" name="expiration-year">
+                  <option value="">Select an option</option>
+                  <option>2008</option>
+                  <option>2013</option>
+                  <option>2017</option>
+                  <option>2021</option>
+                </select>
+          
+                <select id="ani2" name="expiration-year-2">
+                  <option value="">Select an option</option>
+                  <option>2008</option>
+                  <option>2013</option>
+                  <option>2017</option>
+                  <option>2021</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="graf">
+              <label class="category">Date:</label>
+  
+              <div class="choices">
+                <div class="grafcomp">
+                  <input type="radio" id="date1" name="group1" value="option1">
+                  <label for="date1">
+                    Chubby
+                  </label>
+                </div>
+                <div class="grafcomp">
+                  <input type="radio" id="date2" name="group1" value="option2">
+                  <label for="date2">
+                    Overweight
+                  </label>
+                </div>
+                <div class="grafcomp">
+                  <input type="radio" id="date3" name="group1" value="option3">
+                  <label for="date3">
+                    Obese
+                  </label>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="graf">
+              <label class="category">Optiuni:</label>
+              <div class="choices">
+                <div class="grafcomp">
+                  <input type="radio" id="graf1" name="group2" value="option1">
+                  <label for="graf1">
+                    Lines
+                  </label>
+                </div>
+                <div class="grafcomp">
+                  <input type="radio" id="graf2" name="group2" value="option2">
+                  <label for="graf2">
+                    Graph
+                  </label>
+                </div>
+                <div class="grafcomp">
+                  <input type="radio" id="graf3" name="group2" value="option3">
+                  <label for="graf3">
+                    Map
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div>
+          <button id="displayBtn" disabled>Display</button>
+        </div>
+
+
+
+
+        <div class="export">
+          <label class="category">Export:</label>
+
+          <div class="choices">
+            <div class="exportcomp">
+              <input type="radio" id="export1" name="group3" value="option1">
+              <label for="export1">
+                CSV
+              </label>
+            </div>
+            
+            <div class="exportcomp">
+              <input type="radio" id="export2" name="group3" value="option2">
+              <label for="export2">
+                WebP
+              </label>
+            </div>
+            
+            <div class="exportcomp">
+              <input type="radio" id="export3" name="group3" value="option3">
+              <label for="export3">
+                SVG
+              </label>
+            </div>
+          </div>
+          
+
+          <button>Export</button>
+        </div>
+
+        </div>
         <div class="div2"></div>
-        <div class="div3"></div>
       </div>
     </div>
 
+
     <div class="footer">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <span>OVi is a project developed by Call Laurentiu-Stefan, Rosca Victor and Tabacaru Andrei-Stefan as part of the "Web Technologies" course of the Faculty of Computer Science in Iasi tasked with the creation of a responsive website that offers a proper way to visualise and work with large datasets.</span>
     </div>
+
+
+    <script>
+      const button = document.getElementById("displayBtn");
+      const div = document.querySelector(".export");
+
+      button.addEventListener("click", () => {
+        div.style.opacity = 1;
+      });
+    </script>
+
+    <script>
+      // Get the input box and dropdown options
+      var inputBox = document.querySelector(".input-box");
+      var dropdown = document.querySelector(".dropdown");
+      var options = dropdown.querySelectorAll("li");
+
+      // Show dropdown options when input box is clicked
+      inputBox.addEventListener("click", function() {
+        dropdown.classList.toggle("show");
+      });
+
+      // Filter dropdown options based on input box value
+      inputBox.addEventListener("input", function() {
+        var inputValue = inputBox.value.toUpperCase();
+
+        options.forEach(function(option) {
+          if (option.innerText.toUpperCase().indexOf(inputValue) > -1) {
+            option.style.display = "block";
+          } else {
+            option.style.display = "none";
+          }
+        });
+      });
+
+      // Toggle checkbox when checkbox or row is clicked
+      dropdown.addEventListener("click", function(event) {
+        var target = event.target;
+
+        while (target !== dropdown) {
+          if (target.tagName === "LI") {
+            var checkbox = target.querySelector("input[type='checkbox']");
+            checkbox.checked = !checkbox.checked;
+            return;
+          } else if (target.tagName === "INPUT") {
+            return;
+          }
+          target = target.parentNode;
+        }
+      });
+
+      // Hide dropdown when clicked outside of it
+      document.addEventListener("click", function(event) {
+        var isClickInsideDropdown = dropdown.contains(event.target);
+        var isClickInsideInputBox = inputBox.contains(event.target);
+
+        if (!isClickInsideDropdown && !isClickInsideInputBox) {
+          dropdown.classList.remove("show");
+        }
+      });
+
+    </script>
+
+    <script>
+      const tables = document.querySelectorAll(".tari, .ani, .graf, .export");
+    
+      tables.forEach(function(table) {
+        const inputs = table.querySelectorAll('input');
+        const selects = table.querySelectorAll('select');
+    
+        window.addEventListener("load", function() {
+          inputs.forEach(function(input) {
+            input.checked = false;
+          });
+    
+          selects.forEach(function(select) {
+            select.selectedIndex = 0;
+          });
+        });
+      });
+    </script>
+
+    <script>
+
+    </script>
+
   </body>
 </html>

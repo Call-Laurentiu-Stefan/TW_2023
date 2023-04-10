@@ -27,6 +27,30 @@ header {
   nav[id=header] li {
     margin-right: 20px;
   }
+
+
+
+  nav[id=header] li {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  nav[id=header] li:hover {
+    transform: scale(1.1);
+  }
+
+
+
+  .header img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .header img:hover {
+    transform: scale(1.1);
+  }
+
+
+
+
   
   nav[id=header] a {
     color: #333;

@@ -1,46 +1,55 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>OVi</title>
-    <link rel="stylesheet" href="styles/contact.css" type="text/css" />
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/contact.css" type="text/css" >
+    <link rel="stylesheet" href="styles/footer.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body style="background-image: url('./resources/BackGround.png')">
-    <div class="header">
-        <a href="index.html">
-            <img src="resources/logo_1.png" alt="OVi"/>
-            <h1>OVi</h1>
-        </a>
+    <header class="header">
+      <a href="index.html">
+        <img src="resources/logo_1.png" alt="OVi">
+      </a>
+      <nav id="header">
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>  
+
+    <div class="content">
+        <form method="post">
+            <div class="box">
+                <div class="img">
+                    <img src="./resources/logo.png" alt="Logo" style="width:29%; height:19%">
+                </div>
+
+                <h1>Contact Us</h1>
+
+                <div class="container">
+                    <label>Rosca Victor</label><br>
+                    <a  href="https://github.com/Victor119"> https://github.com/Victor119 </a><br><br>
+                    
+                    <label>Tabacaru Andrei</label><br>
+                    <a href="https://github.com/tabacaruandrei"> https://github.com/tabacaruandrei </a><br><br>
+                    
+                    <label>Call Laurentiu Stefan</label><br>
+                    <a href="https://github.com/Call-Laurentiu-Stefan"> https://github.com/Call-Laurentiu-Stefan </a><br><br>
+                </div>
+            </div>
+        </form><br><br>
     </div>
-    <form method="post">
-        <div class="box">
-            <div class="img">
-                <img src="./resources/logo.png" alt="Logo" style="width:29%; height:19%">
-            </div>
 
-            <h1>Contact Us</h1>
-
-            <div class="container">
-                <label for="name">Rosca Victor</label><br>
-                <a  href="https://github.com/Call-Laurentiu-Stefan/TW_2023"> https://github.com/Call-Laurentiu-Stefan/TW_2023 </a><br><br>
-                
-                <label for="name">Tabacaru Andrei</label><br>
-                <a href="https://github.com/Call-Laurentiu-Stefan/TW_2023"> https://github.com/Call-Laurentiu-Stefan/TW_2023 </a><br><br>
-                
-                <label for="name">Call Laurentiu Stefan</label><br>
-                <a href="https://github.com/Call-Laurentiu-Stefan/TW_2023"> https://github.com/Call-Laurentiu-Stefan/TW_2023 </a><br><br>
-            </div>
-        </div>
-    </form><br><br>
     <div class="footer">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <span>OVi is a project developed by Call Laurentiu-Stefan, Rosca Victor and Tabacaru Andrei-Stefan as part of the "Web Technologies" course of the Faculty of Computer Science in Iasi tasked with the creation of a responsive website that offers a proper way to visualise and work with large datasets.</span>
     </div>
 </body>
 

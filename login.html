@@ -1,69 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Login</title>
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/login.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"> 
+        <link rel="stylesheet" href="styles/header.css" >
+        <link rel="stylesheet" href="styles/login.css" >
+        <link rel="stylesheet" href="styles/footer.css" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <body>
-    <header class="header">
-      <a href="index.html">
-        <img src="resources/logo_1.png" alt="OVi" />
-      </a>
-      <nav id="header">
-        <ul>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </header>
+    </head>
 
-    <div class="content">
-      <form method="post">
-        <div class="box">
-          <div class="img">
-            <img
-              src="./resources/logo.png"
-              alt="Panda Bear Icon"
-              style="width: 33%; height: 25%"
-            />
+    <body>
+        <header class="header">
+          <a href="index.html">
+            <img src="resources/logo_1.png" alt="OVi">
+          </a>
+          <nav id="header">
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </nav>
+        </header>  
+      
+          <div class="content">
+            <form method="post">
+              <div class="box">
+                  <div class="img">
+                      <img src="./resources/logo.png" alt="Panda Bear Icon" style="width:33%; height:25%">
+                  </div>
+      
+                  <h1>LOG IN</h1>
+      
+                  <div class="container">
+                      <label for="email">Username</label><br>
+                      <input type="text" id="email" placeholder="Enter username" name="email"><br><br>
+      
+                      <label for="password">Password</label><br>
+                      <input type="password" id="password" placeholder="Enter password" name="password"><br><br>
+      
+                      <button type="submit">Login</button>
+                  </div>
+              </div>
+            </form>
           </div>
-
-          <h1>LOG IN</h1>
-
-          <div class="container">
-            <label for="email">Username</label><br />
-            <input
-              type="text"
-              id="email"
-              placeholder="Enter username"
-              name="email"
-            /><br /><br />
-
-            <label for="password">Password</label><br />
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter password"
-              name="password"
-            /><br /><br />
-
-            <button type="submit">Login</button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div class="emptyspace"></div>
-
-    <footer class="footer">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </footer>
-  </body>
+      
+          <div class="emptyspace"></div>
+            
+      <div class="footer">
+        <span>OVi is a project developed by Call Laurentiu-Stefan, Rosca Victor and Tabacaru Andrei-Stefan as part of the "Web Technologies" course of the Faculty of Computer Science in Iasi tasked with the creation of a responsive website that offers a proper way to visualise and work with large datasets.</span>
+      </div>
+    </body>
 </html>

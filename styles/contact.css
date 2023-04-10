@@ -1,15 +1,27 @@
 /*background*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 body {
-    width: 100%;
-    margin: 5px;
-    background-repeat: no-repeat;
+    background-image: url('../resources/BackGround.png');
+    background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-/*box with usrname and password options*/
+.content{
+    min-height: 100vh;
+}
+
+
 .box {
+    margin-top: 50px;
     position: absolute;
     width: 33%;
     height: fit-content;
@@ -31,31 +43,28 @@ body {
 
 
 /* Name */
-label {
+.box label {
     width: 19%;
     margin-top: 6px;
     margin-left: 19%;
     position: relative;
-    font-family: 'Inder';
     font-style: normal;
     color: #e5ba73;
     font-size: 1.5vw;
 }
 
-h1 {
+.box h1 {
     margin-left: 39%;
     margin-bottom: 10%;
     margin-top: 19%;
-    font-family: 'Inder';
     font-style: normal;
     display: flex;
     align-items: center;
     color: #e5ba73;
 }
 
-h2 {
+.box h2 {
     margin: 5px;
-    font-family: 'Inder';
     font-style: normal;
     font-size: small;
     padding: 20px 19px;
@@ -65,15 +74,14 @@ h2 {
     margin-bottom: 4%;
 }
 
-h3 {
+.box h3 {
     font-size: 199%;
-    font-family: "Inder";
     margin-top: 0%;
     margin-left: 2%;
 }
 
 
-.img {
+.box .img {
     position: absolute;
     margin-top: 3%;
     margin-left: 39%;
@@ -87,29 +95,29 @@ h3 {
         top: 19%
     }
 
-    h1 {
+    .box h1 {
         margin-left: 44%;
         font-size: 3vw;
     }
 
-    h2 {
+    .box h2 {
         margin-left: 19%;
         font-size: 3vw;
     }
 
-    button {
+    .box button {
         font-size: 3vw;
         margin-left: 29%;
     }
 
-    label {
+    .box label {
         font-size: 3vw;
         margin-top: 2%;
     }
 }
 
 @media only screen and (min-width: 449px) and (max-width:579px) {
-    button {
+    .box button {
         margin-left: 34%;
     }
 
@@ -118,11 +126,11 @@ h3 {
         left: 19%;
     }
 
-    h2 {
+    .box h2 {
         margin-left: 9%;
     }
 
-    h1 {
+    .box h1 {
         margin-left: 39%;
     }
 
@@ -134,12 +142,12 @@ h3 {
         left: 24%;
     }
 
-    h2 {
+    .box h2 {
         margin-left: 21%;
         font-size: 2vw;
     }
 
-    h1 {
+    .box h1 {
         margin-left: 39%;
     }
 }
