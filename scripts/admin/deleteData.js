@@ -1,5 +1,4 @@
 async function deleteData(event) {
-    debugger;
     var elementId = event.currentTarget.getAttribute('name');
     const response = await fetch(`/OVi/api/bmi-data/${elementId}`, {
       method: "DELETE",
