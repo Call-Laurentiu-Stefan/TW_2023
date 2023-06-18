@@ -1,11 +1,36 @@
-fetch("/OVi/api/bmi-data")
+// let paramString = window.location.href.split('?')[1];
+//   let queryString = new URLSearchParams(paramString);
+//   let page = Array.from(queryString.entries()).length > 0 ? Array.from(queryString.entries())[0][1] : 1;
+
+let paramString = window.location.href.split('?')[1];
+let queryString = new URLSearchParams(paramString);
+let page = Array.from(queryString.entries()).length > 0 ? Array.from(queryString.entries())[0][1] : 1;
+let maxPage;
+
+let geoFilter = Array.from(queryString.entries()).length > 1 ? Array.from(queryString.entries())[1][1] : "";
+let timeFilter = Array.from(queryString.entries()).length > 2 ? Array.from(queryString.entries())[2][1] : "";
+let bmiFilter = Array.from(queryString.entries()).length > 3 ? Array.from(queryString.entries())[3][1] : "";
+document.getElementById("geoFilter").value = geoFilter;
+document.getElementById("timeFilter").value = timeFilter;
+document.getElementById("bmiFilter").value = bmiFilter;
+
+
+function getData(geoFilter = null, timeFilter = null, bmiFilter = null) {
+  let url = `/OVi/api/bmi-data?pageNumber=${page}`;
+  url = geoFilter && geoFilter !== "" ? url.concat(`&geo=${geoFilter}`) : url;
+  url = timeFilter && timeFilter !== "" ? url.concat(`&year=${timeFilter}`) : url;
+  url = bmiFilter && bmiFilter !== "" ? url.concat(`&bmi=${bmiFilter}`) : url;
+
+  fetch(url)
   .then((response) => response.json())
-  .then((data) => {
+  .then((body) => {
+    console.log(body)
+    maxPage = body["totalPages"];
     // Access the retrieved data here
     // Iterate over the data and generate table rows
     const tableBody = document.getElementById("table-body");
-
-    data.forEach((item) => {
+    tableBody.innerHTML = "";
+    body['data'].forEach((item) => {
       const row = document.createElement("tr");
       const geo = document.createElement("td");
       const time = document.createElement("td");
@@ -59,3 +84,6 @@ fetch("/OVi/api/bmi-data")
   .catch((error) => {
     console.error("Error:", error);
   });
+}
+
+getData(geoFilter, timeFilter, bmiFilter);

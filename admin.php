@@ -39,41 +39,71 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <button type="button" class="btnNew" id="btnNew">Add New Entry</button>
         <div id="myModal" class="modal">
           <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>Enter Data</h2>
-              <form method="POST" class="modal-form">
-                  <label for="geo">Geopolitical Entity</label>
-                  <input type="text" id="geo" name="geo" required>
-                  <label for="time_period">Time period:</label>
-                  <input type="text" id="time_period" name="time_period" required>
-                  <label for="obs_value">Percentage value:</label>
-                  <input type="text" id="obs_value" name="obs_value" required>
-                  <label for="bmi">BMI:</label>
-                  <input type="text" id="bmi" name="bmi" required>
-                  <button type="button" onClick="createData();">Create</button>
-              </form>
+            <span class="close">&times;</span>
+            <h2>Enter Data</h2>
+            <form method="POST" class="modal-form">
+              <label for="geo">Geopolitical Entity</label>
+              <input
+                type="text"
+                id="geo"
+                name="geo"
+                autocomplete="off"
+                required
+              />
+              <label for="time_period">Time period:</label>
+              <input
+                type="text"
+                id="time_period"
+                name="time_period"
+                autocomplete="off"
+                required
+              />
+              <label for="obs_value">Percentage value:</label>
+              <input
+                type="text"
+                id="obs_value"
+                name="obs_value"
+                autocomplete="off"
+                required
+              />
+              <label for="bmi">BMI:</label>
+              <input
+                type="text"
+                id="bmi"
+                name="bmi"
+                autocomplete="off"
+                required
+              />
+              <button type="button" onClick="createData();">Create</button>
+            </form>
           </div>
-      </div>
-  
+        </div>
+
         <table>
           <tr>
             <th>
               Geopolitical Entity
-              <input type="text" placeholder="Search for Geopolitical Entity" />
+              <input type="text" id="geoFilter" placeholder="Search for Geopolitical Entity" onkeyup="search()" />
             </th>
             <th>
               Time
-              <input type="text" placeholder="Search for Time" />
+              <input type="text" id = "timeFilter" placeholder="Search for Time" onkeyup="search()" />
             </th>
             <th>Percentage</th>
             <th>
               BMI
-              <input type="text" placeholder="Search for BMI" />
+              <input type="text" id = "bmiFilter" placeholder="Search for BMI" onkeyup="search()" />
             </th>
             <th>Actions</th>
           </tr>
           <tbody id="table-body"></tbody>
         </table>
+        <div class="pagination">
+          <button type="button" onClick="firstPage();">❮❮</button>
+          <button type="button" onClick="decrementPage();">❮</button>
+          <button type="button" onClick="incrementPage();">❯</button>
+          <button type="button" onClick="lastPage();">❯❯</button>
+        </div>
       </div>
     </div>
     <div class="footer">
@@ -87,8 +117,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </div>
     <script src="scripts/admin/deleteData.js"></script>
     <script src="scripts/admin/getData.js"></script>
+    <script src="scripts/admin/pagination.js"></script>
     <script src="scripts/admin/modal.js"></script>
     <script src="scripts/admin/createData.js"></script>
     <script src="scripts/admin/editData.js"></script>
-    </body>
+    <script src="scripts/admin/search.js"></script>
+  </body>
 </html>

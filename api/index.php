@@ -13,7 +13,9 @@ $response = "";
 switch (true) {
     case $requestEndpoint == '/OVi/api/bmi-data':
         if ($requestMethod === 'GET') {
-            $response = $controller->getAllData();
+            $pageNumber = $_GET['pageNumber'] ?? 1;
+            $pageSize = $_GET['pageSize'] ?? 10;
+            $response = $controller->getPaginatedData($pageNumber, $pageSize);
         } elseif ($requestMethod === 'POST') {
             $body = file_get_contents('php://input');
             $entry = (json_decode($body));

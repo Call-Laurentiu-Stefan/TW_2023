@@ -39,7 +39,7 @@ async function editData(event) {
 }
 
 function cancelEdit(elementId) {
-  undoRow(elementId);
+  location.reload();
 }
 
 function getInputData(elementId) {

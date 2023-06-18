@@ -2,8 +2,8 @@
 function connect()
 {
     $servername = "localhost";
-    $username = "admin";
-    $password = "admin123";
+    $username = "root";
+    $password = "";
     $dbname = "ovi";
 
     // Create connection

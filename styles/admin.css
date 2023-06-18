@@ -13,13 +13,12 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .data {
-  width: 100%;
+  width: 97%;
   position: relative;
   margin: 200px auto;
   padding: 20px;
@@ -166,3 +165,28 @@ td {
   text-decoration: none;
   cursor: pointer;
 }
+
+.pagination {
+  display: inline-block;
+  margin-left:46%;
+  margin-top: 3%;
+}
+
+.pagination button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  margin:5px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination buttons.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination button:hover:not(.active) {background-color: #ddd;}
+
