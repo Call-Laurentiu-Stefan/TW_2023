@@ -21,10 +21,7 @@ body {
   
   .div2 {
     min-height: 600px;
-    background-image: url('../resources/europe-map.jpg');
-    background-repeat:no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: white;
   }
   
   .div1,
@@ -139,14 +136,15 @@ body {
     align-items: center;
   }
 
-  .div1 button:disabled{
+  .div1 #displayBtn:disabled{
     opacity: 0.8;
     cursor: not-allowed;
   }
   
-  .div1 button{
+  .div1 #displayBtn{
     position: absolute;
     /* bottom: 0; */
+    z-index: 1000;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
@@ -167,8 +165,20 @@ body {
     align-items: center;
   }
 
+  .export button:disabled{
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
   .export button{
     margin-top: 60px;
+    position: absolute;
+    z-index: 1000;
+    /* bottom: 0; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
   }
 
 @media only screen and (min-width: 900px) {
