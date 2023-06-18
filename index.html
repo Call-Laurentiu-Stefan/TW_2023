@@ -50,16 +50,16 @@
                 <label class="category">Ani:</label>
               
                 <div class="choices">
-                  <select id="ani1" name="expiration-year">
+                  <select id="ani1" name="expiration-year" class="year-select">
                     <option value="">Select an option</option>
                     <!-- Other options will be added dynamically -->
                   </select>
                   
-                  <select id="ani2" name="expiration-year-2">
+                  <select id="ani2" name="expiration-year-2" class="year-select">
                     <option value="">Select an option</option>
                     <!-- Other options will be added dynamically -->
                   </select>
-                </div>
+                </div>                
               </div>
             
               <div class="graf">
@@ -140,8 +140,34 @@
     </div>
 
 
-    
+    <script>
+      window.addEventListener("load", function() {
+        // Get all input and select elements
+        const inputs = document.querySelectorAll('input');
+        const selects = document.querySelectorAll('select');
+      
+        // Reset all input elements
+        inputs.forEach(function(input) {
+          switch (input.type) {
+            case 'checkbox':
+            case 'radio':
+              input.checked = false;
+              break;
+            default:
+              break;
+          }
+        });
+      
+        // Reset all select elements
+        selects.forEach(function(select) {
+          select.selectedIndex = 0;
+        });
+      });
+      
+    </script>
     <script src="main.js"></script>
+
+    
     <script>
       const button = document.getElementById("displayBtn");
       const div = document.querySelector(".export");
@@ -280,17 +306,47 @@
     checkConditions();
   </script>
 
+  <script>
+    const yearSelects = Array.from(document.querySelectorAll('.year-select'));
 
-
+    let originalOptions = [];
     
+    yearSelects.forEach(select => {
+      // Initialize lastSelected value
+      select.dataset.lastSelected = '';
     
-
+      select.addEventListener('change', function(event) {
+        const selectedValue = event.target.value;
     
+        const otherSelect = yearSelects.find(other => other !== event.target);
     
-
+        // Store the original options for the first time
+        if (originalOptions.length === 0) {
+          originalOptions = Array.from(this.options);
+        }
     
-
-
+        // Remove the selected value from the other select, if it exists
+        if (selectedValue !== '') {
+          const otherOption = Array.from(otherSelect.options).find(option => option.value === selectedValue);
+          if (otherOption) {
+            otherOption.remove();
+          }
+        }
     
+        // If there was a previous selection, add it back to the other select
+        const lastSelected = this.dataset.lastSelected;
+        if (lastSelected) {
+          const lastSelectedOption = originalOptions.find(option => option.value === lastSelected);
+          if (lastSelectedOption && !Array.from(otherSelect.options).some(option => option.value === lastSelectedOption.value)) {
+            otherSelect.add(new Option(lastSelectedOption.text, lastSelectedOption.value));
+          }
+        }
+    
+        // Save the current selected value for next time
+        this.dataset.lastSelected = selectedValue;
+      });
+    });
+  </script>
+  
   </body>
 </html>

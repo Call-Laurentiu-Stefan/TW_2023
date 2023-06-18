@@ -45,9 +45,27 @@ const root = {
     console.log('time_period:', time_period);
     console.log('countries:', geo);
     console.log(`Fetching data for bmi: ${bmi}, time period: ${time_period}, and countries: ${geo}`);
-    const geoString = geo.map(country => `'${country}'`).join(', ');
+    const geoTableString = geo.map(country => `SELECT '${country}' AS geo`).join(' UNION ALL ');
+    
+    const query = `
+        SELECT 
+            COALESCE(Data.id, 'default') AS id, 
+            COALESCE(Data.dataflow, 'default') AS dataflow, 
+            COALESCE(Data.last_update, 'default') AS last_update, 
+            COALESCE(Data.freq, 'default') AS freq,
+            COALESCE(Data.unit, 'default') AS unit,
+            COALESCE(Data.bmi, '${bmi}') AS bmi,
+            Temp.geo AS geo,
+            COALESCE(Data.time_period, '${time_period}') AS time_period,
+            COALESCE(Data.obs_value, 0) AS obs_value,
+            COALESCE(Data.obs_flag, 'default') AS obs_flag
+        FROM (${geoTableString}) AS Temp
+        LEFT JOIN Data ON Data.geo = Temp.geo 
+            AND Data.bmi = "${bmi}" 
+            AND Data.time_period = "${time_period}"
+    `;
     return new Promise((resolve, reject) => {
-      db.query(`SELECT * FROM Data WHERE bmi = "${bmi}" AND time_period = "${time_period}" AND geo IN (${geoString})`, (err, results) => {
+      db.query(query, (err, results) => {
         if (err) {
           console.error('Database query failed:', err);
           reject(null);

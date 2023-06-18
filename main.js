@@ -10,9 +10,14 @@ const countryLookup = {
   'CZ': 'Czech Republic',
   'DE': 'Germany',
   'DK': 'Denmark',
+  'EA18': 'Euro Area - 18 countries',
+  'EA19': 'Euro Area - 19 countries',
   'EE': 'Estonia',
   'EL': 'Greece',
   'ES': 'Spain',
+  'EU27_2007': 'European Union - 27 countries(2007-2013)',
+  'EU27_2020': 'European Union - 27 countries(from 2020)',
+  'EU28': 'European Union - 28 countries(2013-2020)',
   'FI': 'Finland',
   'FR': 'France',
   'GR': 'Greece',
@@ -174,8 +179,12 @@ document.getElementById('graphqlForm').addEventListener('submit', function(event
     .then(r => r.json())
     .then(data => {
       console.log('Response:', data);
-      const chartData = data.data.data.map(item => item.obs_value);
+      const chartData = data.data.data.map(item => item.obs_value || 0);
       const chartLabels = data.data.data.map(item => countryLookup[item.geo] || item.geo);  // Use full country name if available
+
+      console.log('chartData:', chartData);
+
+      chartDataGlobal = data.data.data;
 
       const maxValue = Math.max(...chartData.map(Number)) + 10;
 
@@ -235,10 +244,13 @@ document.getElementById('graphqlForm').addEventListener('submit', function(event
       }, {});
 
       // Calculate differences for the first year data using the second year data
-      const chartData = data.data.dataYear1.map(item => item.obs_value - (dataYear2Map[item.geo] || 0));
+      const chartData = data.data.dataYear1.map(item => item.obs_value - dataYear2Map[item.geo]);
       const chartLabels = data.data.dataYear1.map(item => countryLookup[item.geo] || item.geo);  // Use full country name if available
 
+      chartDataGlobal = data.data.data;
       const maxValue = Math.max(...chartData.map(Number)) + 3;
+      const minValue = Math.min(...chartData.map(Number)) - 3;
+      console.log('minValue:', minValue)
 
       // Update the chart's data and options
       chart.data.labels = chartLabels;
@@ -250,14 +262,12 @@ document.getElementById('graphqlForm').addEventListener('submit', function(event
         borderWidth: 1
       }];
 
-      const minValue = Math.min(...chartData.map(Number)) - 3;
-
       chart.options.scales = {
         x: {
           barPercentage: 0.2 // Reduce bar width to 50% of available space
         },
         y: {
-          min: 0,
+          min: minValue,
           max: maxValue // Set max y-value to a value higher than the highest data value
         }
       };
