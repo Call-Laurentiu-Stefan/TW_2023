@@ -41,7 +41,7 @@ body {
     margin-top: 10%;
 }
 
-input[id=email]{
+input[id=username]{
     width: 60%;
     font-style: normal;
     padding: 12px;
